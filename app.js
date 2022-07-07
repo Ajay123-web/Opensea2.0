@@ -4,7 +4,12 @@ import mongoose from "mongoose";
 import cors from "cors";
 import NFTRoutes from "./routes/NFT.js";
 import dotenv from "dotenv";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 dotenv.config({ path: "./config.env" });
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -27,8 +32,6 @@ mongoose
   })
   .then(() => console.log("Mongo Connected"))
   .catch((error) => console.log(`${error} did not connect`));
-
-const path = require("path");
 
 app.get("/", (req, res) => {
   app.use(express.static(path.resolve(__dirname, "client", "build")));

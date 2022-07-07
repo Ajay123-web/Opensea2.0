@@ -31,7 +31,7 @@ const MakeOffer = ({ nft }) => {
   };
 
   const handleSubmit = async () => {
-    if (chain !== "3") {
+    if (chain === "3") {
       const res = await buyNft(nft);
       if (res) {
         NFTSuccess();
@@ -44,7 +44,7 @@ const MakeOffer = ({ nft }) => {
   };
   return (
     <div className="flex h-20 w-full justify-center items-center rounded-lg border border-[#151c22] bg-[#303339] px-12">
-      <Toaster position="bottom-left" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
       <div className={`${style.button} bg-[#2081e2] hover:bg-[#42a0ff]`}>
         <IoMdWallet className={style.buttonIcon} />
         <div className={style.buttonText}>
